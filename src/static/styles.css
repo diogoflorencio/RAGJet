@@ -1,0 +1,154 @@
+body {
+  background-color: #121212;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.chat-container {
+  width: 600px;
+  background-color: #2C2C2C;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 500px;
+}
+
+/* Barra de título do chat */
+.chat-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #005F33;
+  padding: 10px;
+  border-radius: 10px 10px 0 0;
+  margin-bottom: 10px;
+}
+
+.chat-title {
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.nvidia-logo {
+  width: 24px;
+  height: 24px;
+}
+
+.chat-box {
+  flex-grow: 1;
+  overflow-y: auto;
+  margin-bottom: 10px;
+  padding-bottom: 10px; /* Adicionado para evitar sobreposição */
+}
+
+.chat-message {
+  background-color: #1F1F1F;
+  color: #FFFFFF;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  max-width: 70%;
+  word-wrap: break-word;
+  display: inline-block;
+}
+
+/* Estilo para as mensagens recebidas (alinhadas à esquerda) */
+.chat-message.received {
+  background-color: #3A3A3A;
+  text-align: left;
+  float: left;
+  clear: both;
+  border-bottom-left-radius: 0;
+}
+
+/* Estilo para as mensagens enviadas (alinhadas à direita) */
+.chat-message.sent {
+  background-color: #005F33;
+  text-align: right;
+  float: right;
+  clear: both;
+  border-bottom-right-radius: 0;
+}
+
+.input-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1F1F1F;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.input-container input {
+  width: 80%;
+  background-color: transparent;
+  border: none;
+  color: #FFFFFF;
+  outline: none;
+  padding: 5px;
+}
+
+.input-container button {
+  background-color: #005F33;
+  border: none;
+  color: #FFFFFF;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.input-container button:hover {
+  background-color: #007F42;
+}
+
+/* Animação dos três pontinhos */
+.dot-typing {
+  display: inline-block;
+  position: relative;
+  width: 1em;
+  height: 1em;
+}
+
+.dot-typing::before, .dot-typing::after, .dot-typing > div {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  background-color: #FFF;
+  border-radius: 50%;
+  width: 0.4em;
+  height: 0.4em;
+  top: 0.3em;
+  animation: dotTyping 1s infinite linear;
+}
+
+.dot-typing > div {
+  left: 0.4em;
+  animation-delay: 0.2s;
+}
+
+.dot-typing::before {
+  left: 0;
+}
+
+.dot-typing::after {
+  left: 0.8em;
+  animation-delay: 0.4s;
+}
+
+@keyframes dotTyping {
+  0%, 60%, 100% {
+      transform: translateY(0);
+  }
+  30% {
+      transform: translateY(-0.3em);
+  }
+}
