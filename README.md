@@ -15,7 +15,7 @@ As a proof of concept (PoC), we have specialized a large language model (LLM) on
 - [License](#license)
 - [Acknowledgments](#acknowledgments)
 
-## 🤖 Demo of the RAGJet application answering a question related to the cuDNN library.
+## 🤖 Demo of the RAGJet application answering questions related to the cuDNN library.
 
 <div style="text-align: center;">
    <img src="demo.gif" alt="Descrição do GIF" width="600" height="600">
