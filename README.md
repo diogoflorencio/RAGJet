@@ -1,6 +1,8 @@
-# 🚀 RAGJet: Retrieval-Augmented Generation on Jetson Xavier AGX
+# 🚀 RAGJet: Retrieval-Augmented Generation on Jetson Xavier AGX (LLaMA + FastApi)
 
-Welcome to **RAGJet**! This project focuses on implementing and optimizing Retrieval-Augmented Generation (RAG) models on the NVIDIA Jetson Xavier platform. Our goal is to leverage RAG, which combines the retrieval of relevant documents with generative models, to produce more accurate and contextually appropriate responses. By utilizing Jetson Xavier's high-performance AI computing, we aim to create an efficient and scalable solution for edge-based applications where real-time data processing and inference are critical.
+Welcome to **RAGJet**! This project focuses on implementing and optimizing Retrieval-Augmented Generation (RAG) models on the NVIDIA Jetson Xavier platform. Our goal is to leverage RAG, which combines the retrieval of relevant documents with generative models, to produce more accurate and contextually appropriate responses. By utilizing Jetson Xavier's high-performance AI computing, we aim to create asolution for edge-based applications where real-time data processing and inference are required.
+
+As a proof of concept (PoC), we have specialized a large language model (LLM) on the reference documentation of the cuDNN library. This specialization enables the model to provide precise and context-aware responses specific to cuDNN. Furthermore, the model has been deployed within a FastAPI application, allowing for integration and interaction in a real-world scenario on the Jetson Xavier hardware.
 
 ## 📑 Table of Contents
 
@@ -13,9 +15,13 @@ Welcome to **RAGJet**! This project focuses on implementing and optimizing Retri
 - [License](#license)
 - [Acknowledgments](#acknowledgments)
 
+## 🤖 Demo of the RAGJet application answering a question related to the cuDNN library.
+
+<center><img src="demo.gif" alt="Descrição do GIF" width="600" height="600"></center>
+
 ## 🌟 Introduction
 
-**Retrieval-Augmented Generation (RAG)** is an advanced technique that combines the retrieval of relevant documents with generative models to produce contextually accurate responses. By integrating RAG with the NVIDIA Jetson Xavier, this project brings the power of these models to edge devices, making them ideal for applications requiring real-time inference and decision-making.
+**Retrieval-Augmented Generation (RAG)** is an advanced technique that combines the retrieval of relevant documents with generative models to produce contextually accurate responses. By integrating RAG with the NVIDIA Jetson Xavier, this project brings the power of these models to edge devices.
 
 ## 🛠️ Key Features
 
