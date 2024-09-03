@@ -2,8 +2,8 @@ import torch
 import faiss
 import os
 
-# from sentence_transformers import SentenceTransformer
-# from transformers import AutoTokenizer, AutoModelForCausalLM
+from sentence_transformers import SentenceTransformer
+from transformers import AutoTokenizer, AutoModelForCausalLM
 from llama_index.core import SimpleDirectoryReader, Settings, StorageContext, VectorStoreIndex
 from llama_index.core.node_parser import SentenceSplitter
 from llama_index.legacy.embeddings.langchain import LangchainEmbedding
@@ -23,6 +23,8 @@ class RaGJetson:
     """
     
     def __init__(self):
+
+        self._check_models()
 
         documents = SimpleDirectoryReader(input_files=[os.path.join(os.path.dirname(__file__), 'cuDNN-Developer-Guide.pdf')]).load_data()
         parser = SentenceSplitter.from_defaults(chunk_size=512, chunk_overlap=20)
@@ -65,3 +67,16 @@ class RaGJetson:
         query_engine = stored_index.as_query_engine()
         response = query_engine.query(prompt)
         return response
+    
+    def _check_models(self):
+        """
+        Checks if the models are downloaded. If not, downloads them.
+
+        """
+        if not os.path.exists(os.path.join(os.path.dirname(__file__), 'sentence-transformers')):
+            SentenceTransformer("sentence-transformers/all-mpnet-base-v2").save(os.path.join(os.path.dirname(__file__), 'sentence-transformers'))
+        if not os.path.exists(os.path.join(os.path.dirname(__file__), 'tinyllama-tokenizer')):
+            AutoTokenizer.from_pretrained("TinyLlama/TinyLlama-1.1B-Chat-v1.0").save_pretrained(os.path.join(os.path.dirname(__file__), 'tinyllama-tokenizer'))
+        if not os.path.exists(os.path.join(os.path.dirname(__file__), 'tinyllama-model')):
+            AutoModelForCausalLM.from_pretrained("TinyLlama/TinyLlama-1.1B-Chat-v1.0", torch_dtype=torch.float16, low_cpu_mem_usage=True).save_pretrained(os.path.join(os.path.dirname(__file__), 'tinyllama-model'))
+        return 
